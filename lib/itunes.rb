@@ -1,6 +1,6 @@
 require 'json'
 require 'active_support/core_ext'
-require 'restclient_with_cert'
+require 'rest-client'
 
 module Itunes
 
