@@ -14,9 +14,9 @@ Gem::Specification.new do |s|
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.add_dependency 'json', '>= 1.4.3'
-  s.add_dependency 'restclient_with_cert'
   s.add_dependency 'activesupport', '>= 2.3'
   s.add_dependency 'i18n'
+  s.add_dependency 'rest-client', '>= 1.6'
   s.add_development_dependency 'rake', '>= 0.8'
   s.add_development_dependency 'rspec', '>= 2'
   s.add_development_dependency 'fakeweb', '>= 1.3.0'
