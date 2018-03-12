@@ -1,4 +1,6 @@
 require 'itunes'
+require 'restclient'
+require 'openssl'
 
 module Itunes
   class Receipt
@@ -161,11 +163,14 @@ module Itunes
     private
 
     def self.post_to_endpoint(request_data, endpoint = Itunes.endpoint)
-      response = RestClient.post(
-        endpoint,
-        request_data.to_json
+      response = RestClient::Request.execute(
+        method: :post,
+        url: endpoint,
+        payload: request_data.to_json,
+        headers: {},
+        verify_ssl: OpenSSL::SSL::VERIFY_PEER
       )
-      response = JSON.parse(response).with_indifferent_access
+      JSON.parse(response).with_indifferent_access
     end
 
     def self.successful_response(response)
